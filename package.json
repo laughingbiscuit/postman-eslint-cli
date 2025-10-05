@@ -1,6 +1,6 @@
 {
   "name": "postman-eslint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool to lint JavaScript pre-request and test scripts in Postman collections using ESLint",
   "main": "cli.js",
   "bin": {
