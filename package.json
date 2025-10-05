@@ -1,6 +1,6 @@
 {
   "name": "postman-eslint",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI tool to lint JavaScript pre-request and test scripts in Postman collections using ESLint",
   "main": "cli.js",
   "bin": {
@@ -25,12 +25,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/postman-eslint.git"
+    "url": "https://github.com/laughingbiscuit/postman-eslint-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/postman-eslint/issues"
+    "url": "https://github.com/laughingbiscuit/postman-eslint-cli/issues"
   },
-  "homepage": "https://github.com/yourusername/postman-eslint#readme",
+  "homepage": "https://github.com/laughingbiscuit/postman-eslint-cli",
   "engines": {
     "node": ">=14.0.0"
   },
