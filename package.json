@@ -1,0 +1,31 @@
+{
+  "name": "postman-eslint",
+  "version": "1.0.0",
+  "description": "CLI tool to lint Postman collection scripts with ESLint",
+  "main": "cli.js",
+  "bin": {
+    "postman-eslint": "./cli.js"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": [
+    "postman",
+    "eslint",
+    "cli",
+    "linter"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "commander": "^11.1.0",
+    "eslint": "^8.56.0",
+    "postman-collection": "^5.2.0"
+  },
+  "devDependencies": {
+    "jest": "^30.2.0"
+  }
+}
