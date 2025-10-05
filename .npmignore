@@ -1,0 +1,8 @@
+test/
+coverage/
+.github/
+.vscode/
+*.log
+.env
+run.sh
+jest.config.js

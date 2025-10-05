@@ -4,25 +4,30 @@ A CLI tool to lint JavaScript scripts in Postman collections using ESLint.
 
 ## Installation
 
+Install globally to use from anywhere:
+
 ```bash
-npm install
+npm install -g postman-eslint
+```
+
+Or use locally in your project:
+
+```bash
+npm install --save-dev postman-eslint
 ```
 
 ## Usage
 
-### Basic Usage
+Run `postman-eslint` from your project directory (where your `eslint.config.js` is located):
 
 ```bash
-./cli.js --collection <collection-id> --api-key <your-api-key>
+postman-eslint --collection <collection-id> --api-key <your-api-key>
 ```
 
-### Using Environment Variable
-
-You can also set the API key as an environment variable:
+Or run without installing using npx:
 
 ```bash
-export POSTMAN_API_KEY=your-api-key
-./cli.js --collection <collection-id>
+npx postman-eslint --collection <collection-id> --api-key <your-api-key>
 ```
 
 ### Options
@@ -32,15 +37,62 @@ export POSTMAN_API_KEY=your-api-key
 
 ## Configuration
 
-The tool uses ESLint configuration from `.eslintrc` files in the standard locations that ESLint supports:
+The tool uses ESLint's flat config format (`eslint.config.js`) from your project root. ESLint will automatically discover this file when running.
 
-- `.eslintrc.js`
-- `.eslintrc.json`
-- `.eslintrc.yml`
-- `.eslintrc.yaml`
-- `eslintrc` field in `package.json`
+A sample `eslint.config.js` is included with this package that has Postman-specific globals like `pm` already configured.
 
-A sample `.eslintrc.json` is included with Postman-specific globals like `pm` already configured.
+### If You Don't Have an ESLint Config
+
+If you don't have an `eslint.config.js` in your project, you can:
+
+1. **Copy the included sample config:**
+
+   If installed locally:
+   ```bash
+   cp node_modules/postman-eslint/eslint.config.js ./
+   ```
+
+   If installed globally:
+   ```bash
+   cp "$(npm root -g)/postman-eslint/eslint.config.js" ./
+   ```
+
+2. **Create your own** `eslint.config.js`:
+   ```javascript
+   module.exports = [
+     {
+       languageOptions: {
+         ecmaVersion: 'latest',
+         globals: {
+           pm: 'readonly',
+           console: 'readonly'
+         }
+       },
+       rules: {
+         'semi': ['error', 'always'],
+         'quotes': ['warn', 'single']
+       }
+     }
+   ];
+   ```
+
+3. **Or install and use a preset** like `@eslint/js`:
+   ```bash
+   npm install --save-dev @eslint/js
+   ```
+   Then create `eslint.config.js`:
+   ```javascript
+   const js = require('@eslint/js');
+
+   module.exports = [
+     js.configs.recommended,
+     {
+       languageOptions: {
+         globals: { pm: 'readonly' }
+       }
+     }
+   ];
+   ```
 
 ## How It Works
 
@@ -137,4 +189,3 @@ Total warnings: 2
 # Disclaimer
 
 This is a community project and not an official Postman product.
-

@@ -1,7 +1,7 @@
 {
   "name": "postman-eslint",
   "version": "1.0.0",
-  "description": "CLI tool to lint Postman collection scripts with ESLint",
+  "description": "CLI tool to lint JavaScript pre-request and test scripts in Postman collections using ESLint",
   "main": "cli.js",
   "bin": {
     "postman-eslint": "./cli.js"
@@ -15,10 +15,25 @@
     "postman",
     "eslint",
     "cli",
-    "linter"
+    "linter",
+    "postman-collection",
+    "code-quality",
+    "testing",
+    "api-testing"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/postman-eslint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/postman-eslint/issues"
+  },
+  "homepage": "https://github.com/yourusername/postman-eslint#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
     "axios": "^1.6.0",
     "commander": "^11.1.0",
@@ -27,5 +42,10 @@
   },
   "devDependencies": {
     "jest": "^30.2.0"
-  }
+  },
+  "files": [
+    "cli.js",
+    "README.md",
+    "eslint.config.js"
+  ]
 }
